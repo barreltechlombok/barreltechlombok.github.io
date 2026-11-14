@@ -283,14 +283,26 @@ svg { width: 100%; height: 100%; fill: currentColor; }
 .service-icon--red { background: linear-gradient(135deg, var(--red), var(--red-dark)); box-shadow: var(--shadow-red); }
 .service-icon--dark { background: linear-gradient(135deg, var(--gray-900), var(--gray-700)); }
 
+.service-cat {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--red);
+  background: var(--red-50); padding: 4px 10px; border-radius: var(--radius-pill);
+  margin-bottom: 12px; align-self: flex-start;
+}
 .service-title { font-size: 20px; font-weight: 800; color: var(--gray-900); margin-bottom: 10px; }
 .service-desc { font-size: 15px; color: var(--gray-600); margin-bottom: 18px; flex: 1; }
 .service-points {
   display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
 }
 .service-points li {
-  font-size: 12px; font-weight: 600; color: var(--gray-700);
-  background: var(--gray-100); padding: 5px 11px; border-radius: var(--radius-pill);
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--gray-800);
+  background: var(--gray-100); padding: 5px 12px; border-radius: var(--radius-pill);
+}
+.service-points .sp-chk {
+  width: 16px; height: 16px; background: var(--red); color: #fff;
+  border-radius: 50%; display: grid; place-items: center;
+  font-size: 10px; font-weight: 900; flex-shrink: 0;
 }
 .service-link {
   display: inline-flex; align-items: center; gap: 6px;
@@ -305,6 +317,56 @@ svg { width: 100%; height: 100%; fill: currentColor; }
 }
 .services-note p { font-size: 15px; color: var(--gray-700); }
 .services-note strong { color: var(--red); }
+
+/* ---------- Area Layanan ---------- */
+.area { background: #fff; }
+.area-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  margin-bottom: 32px;
+}
+.area-card {
+  background: var(--gray-50); border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg); padding: 28px 18px;
+  text-align: center; transition: all .35s var(--ease);
+  position: relative; overflow: hidden;
+}
+.area-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--yellow));
+  transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+}
+.area-card:hover {
+  transform: translateY(-4px); box-shadow: var(--shadow-md);
+  background: #fff; border-color: var(--red-100);
+}
+.area-card:hover::before { transform: scaleX(1); }
+.area-pin {
+  width: 52px; height: 52px; margin: 0 auto 14px;
+  background: var(--red-50); color: var(--red);
+  border-radius: 50%; display: grid; place-items: center;
+  transition: all .35s var(--ease);
+}
+.area-pin svg { width: 26px; height: 26px; }
+.area-card:hover .area-pin { background: var(--red); color: #fff; transform: scale(1.08); }
+.area-name { font-size: 19px; font-weight: 800; color: var(--gray-900); margin-bottom: 4px; }
+.area-sub { font-size: 13px; color: var(--gray-600); }
+
+.area-note {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
+  border-radius: var(--radius-lg); padding: 24px 28px;
+  color: #fff;
+}
+.area-note-icon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  background: var(--yellow); color: var(--gray-900);
+  border-radius: 12px; display: grid; place-items: center;
+}
+.area-note-icon svg { width: 26px; height: 26px; }
+.area-note-text { flex: 1; min-width: 220px; }
+.area-note-text strong { display: block; font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.area-note-text p { font-size: 14px; color: rgba(255,255,255,0.78); }
+.area-note-btn { flex-shrink: 0; }
 
 /* ---------- Advantages ---------- */
 .advantages {
@@ -568,6 +630,7 @@ svg { width: 100%; height: 100%; fill: currentColor; }
   .adv-grid { grid-template-columns: repeat(2, 1fr); }
   .process-list { grid-template-columns: repeat(2, 1fr); }
   .process-item:nth-child(2)::after { display: none; }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
 
   .hours-inner { grid-template-columns: 1fr; gap: 32px; }
   .footer-inner { grid-template-columns: 1fr 1fr; }

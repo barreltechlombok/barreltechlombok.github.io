@@ -89,7 +89,7 @@
 
   /* ---------- Reveal on scroll (IntersectionObserver) ---------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll(
-    '.service-card, .adv-card, .process-item, .contact-card, .hero-card, .hours-card, .services-note, .contact-cta'
+    '.service-card, .adv-card, .process-item, .contact-card, .hero-card, .hours-card, .services-note, .contact-cta, .area-card, .area-note'
   ));
   revealEls.forEach(function (el) { el.classList.add('reveal'); });
 
